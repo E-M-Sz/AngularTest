@@ -1,0 +1,12 @@
+<h1>Posts</h1>
+
+<ul>
+  <li *ngFor="let item of messages | async">
+    <input type="text" #updatetext [value]="item.text" />
+    <button (click)="dataService.updateItem(item.$key, updatetext.value)">Update</button>
+    <button (click)="dataService.deleteItem(item.$key)">Delete</button>
+  </li>
+</ul>
+<input type="text" #newitem />
+<button (click)="dataService.addItem(newitem.value)">Add</button>
+<button (click)="dataService.deleteEverything()">Delete All</button>
